@@ -89,7 +89,8 @@ readme: |
   4. Forward the service port:
 
      ```bash
-     kubectl port-forward svc/psl-exercise 3000:80
+     kubectl port-forward svc/application-nodejs 3000:80
+
      ```
 
   5. Open your browser and access the application:
