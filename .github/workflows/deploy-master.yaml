@@ -36,7 +36,10 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/node-hello-service:latest .
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/node-hello-service:latest
+          IMAGE=${{ secrets.DOCKERHUB_USERNAME }}/node-hello-service
 
-      # Aquí iría tu deploy a EKS (kubectl / helm / etc)
+          docker build -t $IMAGE:${{ github.sha }} .
+          docker tag $IMAGE:${{ github.sha }} $IMAGE:latest
+
+          docker push $IMAGE:${{ github.sha }}
+          docker push $IMAGE:latest
