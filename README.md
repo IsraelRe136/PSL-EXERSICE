@@ -1,84 +1,100 @@
-■ How to Run the Service Locally
 
-    1. Make sure you have Node.js v16 installed.
+## How to Run the Service Locally
 
-    2. In the project root, run:
+1. Make sure you have Node.js v16 installed.
 
-        npm start
+2. Install dependencies:
 
-■ How to Run Tests
+   ```bash
+   npm install
+````
 
-    1. Install test dependencies:
+3. Start the application:
 
-        npm install 
+   ```bash
+   npm start
+   ```
 
+---
 
-    2. Run the tests:
+## How to Run Tests
 
-        npm test
+1. Install dependencies (if not already installed):
 
-■ How the CI/CD Workflow Operates
-    Continuous Integration (CI)
+   ```bash
+   npm install
+   ```
 
-        1. Create a new branch based on master.
+2. Run the tests:
 
-        2. Make your changes and push the branch to GitHub.
+   ```bash
+   npm test
+   ```
 
-        3.Open a Pull Request targeting master.
+---
 
-    When the Pull Request is opened or updated:
+## How the CI/CD Workflow Operates
 
-        - The pr-tests.yml workflow is triggered.
+### Continuous Integration (CI)
 
-        - All automated tests are executed.
+1. Create a new branch based on `master`.
+2. Make your changes and push the branch to GitHub.
+3. Open a Pull Request targeting `master`.
 
-        - If any test fails, the Pull Request cannot be merged.
+When the Pull Request is opened or updated:
 
-    Continuous Deployment (CD)
+* The `pr-tests.yml` workflow is triggered.
+* All automated tests are executed.
+* If any test fails, the Pull Request cannot be merged.
 
-        Once the Pull Request is successfully merged into master, the deploy-master.yml workflow  is triggered.
+### Continuous Deployment (CD)
 
-        This workflow:
+Once the Pull Request is successfully merged into `master`, the `deploy-master.yml` workflow is triggered.
 
-            - Builds the Docker image.
+This workflow:
 
-            - Pushes the image to Docker Hub.
+* Builds the Docker image.
+* Pushes the image to Docker Hub.
+* (Optional) Deploys the application to the target environment.
 
-            - (Optional) Deploys the application to the target environment.
+---
 
-■ How to Deploy on Minikube
-    Prerequisites
+## How to Deploy on Minikube
 
-    - Docker Desktop running
+### Prerequisites
 
-    - Minikube, kubectl, and Helm installed
+* Docker Desktop running
+* Minikube, `kubectl`, and Helm installed
 
-    Steps
+### Steps
 
-    1. Start Minikube:
+1. Start Minikube:
 
-        minikube start
+   ```bash
+   minikube start
+   ```
 
+2. Install the application using Helm:
 
-    2. Install the application using Helm:
+   ```bash
+   helm install psl-exercise .
+   ```
 
-        helm install psl-exercise .
+3. Wait until the pod is ready:
 
+   ```bash
+   kubectl get pods
+   ```
 
-    3. Wait until the pod is ready:
+4. Forward the service port:
 
-        kubectl get pods
+   ```bash
+   kubectl port-forward svc/psl-exercise 3000:80
+   ```
 
+5. Open your browser and access the application:
 
-    4. Forward the service port:
+* `http://localhost:3000`
+* Health check: `http://localhost:3000/health`
+* Hello endpoint: `http://localhost:3000/hello`
 
-        kubectl port-forward svc/psl-exercise 3000:80
-
-
-    5. Open your browser and access the application:
-
-    - http://localhost:3000
-
-    - Health check: http://localhost:3000/health
-
-    - Hello endpoint: http://localhost:3000/hello
