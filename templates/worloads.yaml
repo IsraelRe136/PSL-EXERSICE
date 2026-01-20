@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: application-nodejs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: application-nodejs
+  template:
+    metadata:
+      labels:
+        app: application-nodejs
+    spec:
+      containers:
+        - name: application-nodejs
+          image: israel442/node-hello-service:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000

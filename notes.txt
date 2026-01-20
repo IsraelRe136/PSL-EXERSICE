@@ -2,3 +2,15 @@ npm install --save-dev jest@29.7.0
 
 npm test
 
+helm install psl-exersice .
+
+
+kubectl port-forward svc/psl-exersice 3000:80
+
+
+
+
+
+
+
+
