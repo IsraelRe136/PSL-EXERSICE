@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Node Hello Service</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      text-align: center;
+      margin-top: 80px;
+    }
+    h1 {
+      color: #333;
+    }
+    p {
+      font-size: 18px;
+    }
+    .status {
+      margin-top: 20px;
+      font-weight: bold;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <h1>🚀 Node.js Hello Service</h1>
+  <p>This is a simple web service running on Node.js</p>
+  <div class="status" id="status">Checking health...</div>
+
+  <script>
+    fetch('/health')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('status').innerText =
+          'Service status: ' + data.status;
+      })
+      .catch(() => {
+        document.getElementById('status').innerText =
+          'Service status: DOWN';
+      });
+  </script>
+</body>
+</html>
