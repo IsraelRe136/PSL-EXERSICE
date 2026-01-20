@@ -1,0 +1,4 @@
+npm install --save-dev jest@29.7.0
+
+npm test
+
