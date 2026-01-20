@@ -1,4 +1,5 @@
 
+````md
 ## How to Run the Service Locally
 
 1. Make sure you have Node.js v16 installed.
@@ -98,3 +99,4 @@ This workflow:
 * Health check: `http://localhost:3000/health`
 * Hello endpoint: `http://localhost:3000/hello`
 
+````
