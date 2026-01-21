@@ -55,7 +55,6 @@ readme: |
 
   - Builds the Docker image.
   - Pushes the image to Docker Hub.
-  - (Optional) Deploys the application to the target environment.
 
   ---
 
