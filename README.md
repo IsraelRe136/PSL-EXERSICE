@@ -77,7 +77,7 @@ readme: |
   2. Install the application using Helm:
 
      ```bash
-     helm install psl-exercise .
+     helm upgrade --install psl-exercise .
      ```
 
   3. Wait until the pod is ready:
