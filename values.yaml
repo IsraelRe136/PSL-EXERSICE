@@ -1,13 +1,13 @@
-# Replica count
+
 replicaCount: 1
 
-# Container image
+
 image:
   repository: nginx
   tag: latest
   pullPolicy: IfNotPresent
 
-# Service
+
 service:
   name: application-nodejs
   type: NodePort
@@ -28,10 +28,10 @@ container:
   pullPolicy: Always
   port: 3000
 
-# Ingress
+
 ingress:
   enabled: false
   host: example.com
 
-# Container ports for Deployment
+
 
