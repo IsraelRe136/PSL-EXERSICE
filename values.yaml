@@ -10,11 +10,11 @@ image:
 
 service:
   name: application-nodejs
-  type: NodePort
+  type: ClusterIP
   appLabel: application-nodejs
   port: 80
   targetPort: 3000
-  nodePort: 30080
+ 
 
 deployment:
   name: application-nodejs
