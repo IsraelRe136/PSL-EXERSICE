@@ -18,7 +18,7 @@ service:
 
 deployment:
   name: application-nodejs
-  replicas: 5
+  replicas: 3
   appLabel: application-nodejs
 
 container:
