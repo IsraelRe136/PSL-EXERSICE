@@ -14,11 +14,20 @@ service:
   appLabel: application-nodejs
   port: 80
   targetPort: 3000
+#   node
  
+# LGTM stack
 
+# loki 
+# grafana
+# tempo
+# mimir
+
+# gateway-api
+# ingress 
 deployment:
   name: application-nodejs
-  replicas: 3
+  replicas: 7
   appLabel: application-nodejs
 
 container:
